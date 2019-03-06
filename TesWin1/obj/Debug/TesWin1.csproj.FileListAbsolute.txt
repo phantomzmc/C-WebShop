@@ -1,0 +1,11 @@
+C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\bin\Debug\TesWin1.exe.config
+C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\bin\Debug\TesWin1.exe
+C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\bin\Debug\TesWin1.pdb
+C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\obj\Debug\TesWin1.csprojAssemblyReference.cache
+C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\obj\Debug\TesWin1.Form1.resources
+C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\obj\Debug\TesWin1.Properties.Resources.resources
+C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\obj\Debug\TesWin1.ShowProduct.resources
+C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\obj\Debug\TesWin1.csproj.GenerateResource.cache
+C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\obj\Debug\TesWin1.csproj.CoreCompileInputs.cache
+C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\obj\Debug\TesWin1.exe
+C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\obj\Debug\TesWin1.pdb
