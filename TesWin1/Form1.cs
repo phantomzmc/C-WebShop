@@ -18,31 +18,57 @@ namespace TesWin1
             InitializeComponent();
         }
 
+        //View
+        ShowProduct view_product = new ShowProduct();
+        ShowOrder view_order = new ShowOrder();
+        ShowUser view_user = new ShowUser();
+
+        //Model
+        Product product = new Product();
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            Product product = new Product();
-            dataGridView1.DataSource = product.getProduct();
-
+            //dataGridView1.DataSource = product.getProduct();
             getType();
         }
         void getType()
         {
-            Product product = new Product();
             typeproduct_comboBox.DataSource = product.getTypeProduct();
             typeproduct_comboBox.DisplayMember = "TypeName";
             typeproduct_comboBox.ValueMember = "TypeID";
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-           //Product product = new Product(productname_textBox.Text, int.Parse(productprice_textBox.Text), productdetail_textBox.Text, int.Parse(typeproduct_comboBox.Text));
-           //int res = product.addProduct();
+            string name = productname_textBox.Text;
+            string detail = productdetail_textBox.Text;
+            int price = int.Parse(productprice_textBox.Text);
+            int type_pro = int.Parse(typeproduct_comboBox.SelectedValue.ToString());
+
+            Product product = new Product(name, price, detail, type_pro);
+            int res = product.addProduct();
+            
 
         }
-
-        private void typeproduct_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void addOrderToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            string txt = typeproduct_comboBox.SelectedValue.ToString();
-            label4.Text = txt;
+            
+            //MessageBox.Show("New command executed");
+        }
+
+        private void showProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            view_product.Show();
+        }
+
+        private void showOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            view_order.Show();
+        }
+
+        private void showUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            view_user.Show();
         }
     }
 }

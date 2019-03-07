@@ -46,12 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,12 +67,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ShopCafeDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ShowOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowOrder.Designer.cs">
+      <DependentUpon>ShowOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShowProduct.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ShowProduct.Designer.cs">
       <DependentUpon>ShowProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShowUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowUser.Designer.cs">
+      <DependentUpon>ShowUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs" />
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -79,8 +102,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ShowOrder.resx">
+      <DependentUpon>ShowOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ShowProduct.resx">
       <DependentUpon>ShowProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowUser.resx">
+      <DependentUpon>ShowUser.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

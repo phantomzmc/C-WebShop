@@ -38,8 +38,19 @@
             this.typeproduct_comboBox = new System.Windows.Forms.ComboBox();
             this.submit_btn = new System.Windows.Forms.Button();
             this.cancel_btn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.addOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addOrderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.showOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.invoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.invoiceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -106,7 +117,6 @@
             this.typeproduct_comboBox.Name = "typeproduct_comboBox";
             this.typeproduct_comboBox.Size = new System.Drawing.Size(321, 21);
             this.typeproduct_comboBox.TabIndex = 7;
-            this.typeproduct_comboBox.SelectedIndexChanged += new System.EventHandler(this.typeproduct_comboBox_SelectedIndexChanged);
             // 
             // submit_btn
             // 
@@ -127,20 +137,105 @@
             this.cancel_btn.Text = "Cancel";
             this.cancel_btn.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // menuStrip1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(563, 65);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(190, 150);
-            this.dataGridView1.TabIndex = 10;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addOrderToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.invoiceToolStripMenuItem,
+            this.customerToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // addOrderToolStripMenuItem
+            // 
+            this.addOrderToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addOrderToolStripMenuItem1});
+            this.addOrderToolStripMenuItem.Name = "addOrderToolStripMenuItem";
+            this.addOrderToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.addOrderToolStripMenuItem.Text = "Add Order";
+            // 
+            // addOrderToolStripMenuItem1
+            // 
+            this.addOrderToolStripMenuItem1.Name = "addOrderToolStripMenuItem1";
+            this.addOrderToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
+            this.addOrderToolStripMenuItem1.Text = "Add Order";
+            this.addOrderToolStripMenuItem1.Click += new System.EventHandler(this.addOrderToolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showOrderToolStripMenuItem,
+            this.showProductToolStripMenuItem,
+            this.showUserToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(48, 20);
+            this.toolStripMenuItem1.Text = "Show";
+            // 
+            // showOrderToolStripMenuItem
+            // 
+            this.showOrderToolStripMenuItem.Name = "showOrderToolStripMenuItem";
+            this.showOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showOrderToolStripMenuItem.Text = "Show Order";
+            this.showOrderToolStripMenuItem.Click += new System.EventHandler(this.showOrderToolStripMenuItem_Click);
+            // 
+            // showProductToolStripMenuItem
+            // 
+            this.showProductToolStripMenuItem.Name = "showProductToolStripMenuItem";
+            this.showProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showProductToolStripMenuItem.Text = "Show Product";
+            this.showProductToolStripMenuItem.Click += new System.EventHandler(this.showProductToolStripMenuItem_Click);
+            // 
+            // invoiceToolStripMenuItem
+            // 
+            this.invoiceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.historyToolStripMenuItem,
+            this.invoiceToolStripMenuItem1});
+            this.invoiceToolStripMenuItem.Name = "invoiceToolStripMenuItem";
+            this.invoiceToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.invoiceToolStripMenuItem.Text = "Invoice";
+            // 
+            // historyToolStripMenuItem
+            // 
+            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.historyToolStripMenuItem.Text = "History";
+            // 
+            // invoiceToolStripMenuItem1
+            // 
+            this.invoiceToolStripMenuItem1.Name = "invoiceToolStripMenuItem1";
+            this.invoiceToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.invoiceToolStripMenuItem1.Text = "Invoice";
+            // 
+            // customerToolStripMenuItem
+            // 
+            this.customerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addUserToolStripMenuItem});
+            this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.customerToolStripMenuItem.Text = "Customer";
+            // 
+            // addUserToolStripMenuItem
+            // 
+            this.addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
+            this.addUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addUserToolStripMenuItem.Text = "Add User";
+            // 
+            // showUserToolStripMenuItem
+            // 
+            this.showUserToolStripMenuItem.Name = "showUserToolStripMenuItem";
+            this.showUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showUserToolStripMenuItem.Text = "Show User";
+            this.showUserToolStripMenuItem.Click += new System.EventHandler(this.showUserToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cancel_btn);
             this.Controls.Add(this.submit_btn);
             this.Controls.Add(this.typeproduct_comboBox);
@@ -151,10 +246,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.productname_textBox);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Add Product";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,7 +270,18 @@
         private System.Windows.Forms.ComboBox typeproduct_comboBox;
         private System.Windows.Forms.Button submit_btn;
         private System.Windows.Forms.Button cancel_btn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem invoiceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem invoiceToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addUserToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addOrderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addOrderToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem showOrderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showProductToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showUserToolStripMenuItem;
     }
 }
 
