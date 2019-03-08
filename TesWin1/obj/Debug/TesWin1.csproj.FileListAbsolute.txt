@@ -12,3 +12,4 @@ C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\obj\Debug\TesWin1.pdb
 C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\obj\Debug\TesWin1.ShowOrder.resources
 C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\obj\Debug\TesWin1.AddUser.resources
 C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\obj\Debug\TesWin1.ShowUser.resources
+C:\Users\SittikoRN\source\repos\TesWin1\TesWin1\obj\Debug\TesWin1.AddOrder.resources

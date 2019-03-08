@@ -13,6 +13,8 @@ namespace TesWin1
     {
         SqlConnection con = new SqlConnection(Properties.Resources.ConnectionString);
         SqlDataAdapter adapter = new SqlDataAdapter();
+
+        public int ProductID { get; set; }
         public string ProductName { get; set; }
         public double ProductPrice { get; set; }
         public string ProductDetail { get; set; }
@@ -30,6 +32,10 @@ namespace TesWin1
             ProductPrice = productprice;
             ProductDetail = productdetail;
             TypeProduct = typeproduct;
+        }
+        public Product(int productid)
+        {
+            ProductID = productid;
         }
         public DataTable getProduct()
         {
@@ -56,6 +62,22 @@ namespace TesWin1
             con.Close();
 
             return (dr);
+        }
+
+        public DataTable selectProduct()
+        {
+            adapter.SelectCommand = new SqlCommand("uspSelectProduct", con);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            adapter.SelectCommand.Parameters.AddWithValue("@ProductID", ProductID);
+
+            con.Open();
+            adapter.SelectCommand.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            con.Close();
+
+            return (dt);
+            
         }
 
         public int addProduct()

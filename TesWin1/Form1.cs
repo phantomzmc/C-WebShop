@@ -23,6 +23,8 @@ namespace TesWin1
         ShowOrder view_order = new ShowOrder();
         ShowUser view_user = new ShowUser();
 
+        AddOrder add_order = new AddOrder();
+
         //Model
         Product product = new Product();
 
@@ -52,6 +54,7 @@ namespace TesWin1
         }
         private void addOrderToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            add_order.Show();
             
             //MessageBox.Show("New command executed");
         }
@@ -69,6 +72,11 @@ namespace TesWin1
         private void showUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             view_user.Show();
+        }
+
+        private void typeproduct_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

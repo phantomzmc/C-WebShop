@@ -12,6 +12,8 @@ namespace TesWin1
     {
         SqlConnection con = new SqlConnection(Properties.Resources.ConnectionString);
         SqlDataAdapter adapter = new SqlDataAdapter();
+
+        public int ProductID { get; set; }
         public string ProductName { get; set; }
         public int ProductPrice { get; set; }
         public string FirstName { get; set; }
@@ -19,23 +21,54 @@ namespace TesWin1
         public int OrderQty { get; set; }
         public int OrderPrice { get; set; }
         public DateTime OrderTime { get; set; }
+        public int UserID { get; set; }
 
         public Order()
         {
 
         }
 
+        public Order (int productid, int orderqty, int orderprice, int userid, DateTime ordertime)
+        {
+            ProductID = productid;
+            OrderQty = orderqty;
+            OrderPrice = orderprice;
+            UserID = userid;
+            OrderTime = ordertime;
+        }
+
         public DataTable getOrder()
         {
-            adapter.SelectCommand = new SqlCommand("uspGetOrder", con);
+
+            con.Open();
+            SqlCommand sql_com = new SqlCommand("uspGetOrder", con);
+
+            adapter.SelectCommand = sql_com;
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataTable dt = new DataTable();
-            con.Open();
             adapter.Fill(dt);
             con.Close();
 
             return (dt);
+        }
+
+        public int addOrder()
+        {
+            SqlCommand sql_com = new SqlCommand("uspAddOrder", con);
+            adapter.InsertCommand = sql_com;
+            adapter.InsertCommand.CommandType = CommandType.StoredProcedure;
+            adapter.InsertCommand.Parameters.AddWithValue("@ProductID", ProductID);
+            adapter.InsertCommand.Parameters.AddWithValue("@OrderQty", OrderQty);
+            adapter.InsertCommand.Parameters.AddWithValue("@OrderPrice", OrderPrice);
+            adapter.InsertCommand.Parameters.AddWithValue("@UserID", UserID);
+            adapter.InsertCommand.Parameters.AddWithValue("@OrderTime", OrderTime);
+
+            con.Open();
+            int res = adapter.InsertCommand.ExecuteNonQuery();
+            con.Close();
+
+            return res;
         }
     }
 
