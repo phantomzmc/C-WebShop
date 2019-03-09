@@ -137,6 +137,7 @@
             this.cancel_btn.TabIndex = 9;
             this.cancel_btn.Text = "Cancel";
             this.cancel_btn.UseVisualStyleBackColor = true;
+            this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_Click);
             // 
             // menuStrip1
             // 
@@ -162,7 +163,7 @@
             // addOrderToolStripMenuItem1
             // 
             this.addOrderToolStripMenuItem1.Name = "addOrderToolStripMenuItem1";
-            this.addOrderToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.addOrderToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
             this.addOrderToolStripMenuItem1.Text = "Add Order";
             this.addOrderToolStripMenuItem1.Click += new System.EventHandler(this.addOrderToolStripMenuItem1_Click);
             // 
@@ -231,6 +232,7 @@
             this.addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
             this.addUserToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.addUserToolStripMenuItem.Text = "Add User";
+            this.addUserToolStripMenuItem.Click += new System.EventHandler(this.addUserToolStripMenuItem_Click);
             // 
             // Form1
             // 

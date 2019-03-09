@@ -15,7 +15,9 @@ namespace TesWin1
         private int qty = 0;
         private int price = 0;
         private int total = 0;
-        private int promo_id = 0;
+        //private int promo_id = 0;
+        //private int promo_type = 0;
+        //private int discount = 0;
         public AddOrder()
         {
             InitializeComponent();
@@ -79,6 +81,10 @@ namespace TesWin1
             Promotion promo = new Promotion(int.Parse(promo_comboBox.SelectedValue.ToString()));
             DataTable dt = promo.selectPromotion();
 
+            //promo_comboBox.Text = Convert.ToString(dt.Rows[0]["PromotionDiscount"]);
+
+            //promo_type = Convert.ToInt32(dt.Rows[0]["PromotionType"]);
+            //discount = Convert.ToInt32(dt.Rows[0]["PromotionDiscount"]);
 
         }
         void sumTotal()
@@ -95,15 +101,22 @@ namespace TesWin1
         }
         private void submit_button_Click(object sender, EventArgs e)
         {
-            changedProduct();
-            sumTotal();
+            DialogResult result = MessageBox.Show("OK", "Submit",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.OK)
+            {
+                changedProduct();
+                sumTotal();
+                //selectPromotion();
+            }
         }
 
         private void product_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //qty_label.Text = product_comboBox.SelectedValue.ToString();
             sumTotal();
-
         }
 
         private void qty_comboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -129,10 +142,8 @@ namespace TesWin1
 
         private void promo_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(promo_id != 0)
-            {
-
-            }
+            
+             
         }
     }
 }

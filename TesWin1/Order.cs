@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace TesWin1
 {
+    
     class Order
     {
         SqlConnection con = new SqlConnection(Properties.Resources.ConnectionString);
         SqlDataAdapter adapter = new SqlDataAdapter();
 
+        public int OrderID { get; set; }
         public int ProductID { get; set; }
         public string ProductName { get; set; }
         public int ProductPrice { get; set; }
@@ -28,7 +31,11 @@ namespace TesWin1
 
         }
 
-        public Order (int productid, int orderqty, int orderprice, int userid, DateTime ordertime)
+        public Order(int orderid)
+        {
+            OrderID = orderid;
+        }
+        public Order(int productid, int orderqty, int orderprice, int userid, DateTime ordertime)
         {
             ProductID = productid;
             OrderQty = orderqty;
@@ -37,6 +44,7 @@ namespace TesWin1
             OrderTime = ordertime;
         }
 
+        
         public DataTable getOrder()
         {
 
@@ -70,6 +78,22 @@ namespace TesWin1
 
             return res;
         }
+
+        public int delOrder()
+        {
+            SqlCommand sql_com = new SqlCommand("uspDelOrder", con);
+            adapter.InsertCommand = sql_com;
+            adapter.InsertCommand.Parameters.AddWithValue("@OrderID", OrderID);
+
+            con.Open();
+            int res = adapter.InsertCommand.ExecuteNonQuery();
+            con.Close();
+
+            return res;
+        
+        }
+
+        
     }
 
     

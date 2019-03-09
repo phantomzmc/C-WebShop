@@ -31,6 +31,35 @@ namespace TesWin1
         {
 
         }
+        public User(
+            string firstname,
+            string lastname,
+            string email,
+            string tel,
+            string username,
+            string gender,
+            DateTime birthday,
+            string numaddress,
+            string tambon,
+            string amphoe,
+            string city,
+            string country,
+            string postnum)
+        {
+            Firstname = firstname;
+            Lastname = lastname;
+            Email = email;
+            Tel = tel;
+            Username = username;
+            Gender = gender;
+            BirthDay = birthday;
+            NumAddress = numaddress;
+            Tambun = tambon;
+            Amphoe = amphoe;
+            City = city;
+            Country = country;
+            Postnumber = postnum;
+        }
 
         public DataTable getUser()
         {
@@ -43,6 +72,30 @@ namespace TesWin1
             con.Close();
 
             return (dt);
+        }
+        public int addUser()
+        {
+            adapter.InsertCommand = new SqlCommand("uspAddUser", con);
+            adapter.InsertCommand.CommandType = CommandType.StoredProcedure;
+            adapter.InsertCommand.Parameters.AddWithValue("@FirstName", Firstname);
+            adapter.InsertCommand.Parameters.AddWithValue("@LastName", Lastname);
+            adapter.InsertCommand.Parameters.AddWithValue("@Email", Email);
+            adapter.InsertCommand.Parameters.AddWithValue("@Tel", Tel);
+            adapter.InsertCommand.Parameters.AddWithValue("@Username", Username);
+            adapter.InsertCommand.Parameters.AddWithValue("@Gender", Gender);
+            adapter.InsertCommand.Parameters.AddWithValue("@BrithDay", DateTime.Now);
+            adapter.InsertCommand.Parameters.AddWithValue("@NumAddress", NumAddress);
+            adapter.InsertCommand.Parameters.AddWithValue("@Tumbun", Tambun);
+            adapter.InsertCommand.Parameters.AddWithValue("@Amphoe", Amphoe);
+            adapter.InsertCommand.Parameters.AddWithValue("@City", City);
+            adapter.InsertCommand.Parameters.AddWithValue("@Country", Country);
+            adapter.InsertCommand.Parameters.AddWithValue("@PostNumber", Postnumber);
+
+            con.Open();
+            int res = adapter.InsertCommand.ExecuteNonQuery();
+            con.Close();
+
+            return res;
         }
     }
 }

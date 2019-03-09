@@ -28,42 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.firstname_textBox = new System.Windows.Forms.TextBox();
             this.firstname_lb = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lastname_textBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tel_textBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.email_textBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.username_textBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.numaddress_textBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.tambun_textBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.postnum_textBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.country_textBox = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.amphoe_textBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.city_textBox = new System.Windows.Forms.TextBox();
+            this.submit_button = new System.Windows.Forms.Button();
+            this.cancel_button = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.brithdate_label = new System.Windows.Forms.Label();
+            this.gen_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // firstname_textBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(81, 61);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(311, 20);
-            this.textBox1.TabIndex = 0;
+            this.firstname_textBox.Location = new System.Drawing.Point(81, 61);
+            this.firstname_textBox.Name = "firstname_textBox";
+            this.firstname_textBox.Size = new System.Drawing.Size(311, 20);
+            this.firstname_textBox.TabIndex = 0;
             // 
             // firstname_lb
             // 
@@ -83,12 +85,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "LastName";
             // 
-            // textBox2
+            // lastname_textBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(427, 61);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(311, 20);
-            this.textBox2.TabIndex = 2;
+            this.lastname_textBox.Location = new System.Drawing.Point(427, 61);
+            this.lastname_textBox.Name = "lastname_textBox";
+            this.lastname_textBox.Size = new System.Drawing.Size(311, 20);
+            this.lastname_textBox.TabIndex = 2;
             // 
             // label3
             // 
@@ -99,12 +101,12 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Tel";
             // 
-            // textBox3
+            // tel_textBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(427, 115);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(311, 20);
-            this.textBox3.TabIndex = 6;
+            this.tel_textBox.Location = new System.Drawing.Point(427, 115);
+            this.tel_textBox.Name = "tel_textBox";
+            this.tel_textBox.Size = new System.Drawing.Size(311, 20);
+            this.tel_textBox.TabIndex = 6;
             // 
             // label4
             // 
@@ -115,12 +117,12 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Email";
             // 
-            // textBox4
+            // email_textBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(81, 115);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(311, 20);
-            this.textBox4.TabIndex = 4;
+            this.email_textBox.Location = new System.Drawing.Point(81, 115);
+            this.email_textBox.Name = "email_textBox";
+            this.email_textBox.Size = new System.Drawing.Size(311, 20);
+            this.email_textBox.TabIndex = 4;
             // 
             // label5
             // 
@@ -140,12 +142,12 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Username";
             // 
-            // textBox6
+            // username_textBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(81, 165);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(311, 20);
-            this.textBox6.TabIndex = 8;
+            this.username_textBox.Location = new System.Drawing.Point(81, 165);
+            this.username_textBox.Name = "username_textBox";
+            this.username_textBox.Size = new System.Drawing.Size(311, 20);
+            this.username_textBox.TabIndex = 8;
             // 
             // label7
             // 
@@ -156,12 +158,12 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "NumberAddress";
             // 
-            // textBox7
+            // numaddress_textBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(427, 215);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(311, 20);
-            this.textBox7.TabIndex = 14;
+            this.numaddress_textBox.Location = new System.Drawing.Point(427, 215);
+            this.numaddress_textBox.Name = "numaddress_textBox";
+            this.numaddress_textBox.Size = new System.Drawing.Size(311, 20);
+            this.numaddress_textBox.TabIndex = 14;
             // 
             // label8
             // 
@@ -172,13 +174,6 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "Gender";
             // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(81, 215);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(311, 20);
-            this.textBox8.TabIndex = 12;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -188,12 +183,12 @@
             this.label10.TabIndex = 17;
             this.label10.Text = "Tambun";
             // 
-            // textBox10
+            // tambun_textBox
             // 
-            this.textBox10.Location = new System.Drawing.Point(81, 270);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(205, 20);
-            this.textBox10.TabIndex = 16;
+            this.tambun_textBox.Location = new System.Drawing.Point(81, 270);
+            this.tambun_textBox.Name = "tambun_textBox";
+            this.tambun_textBox.Size = new System.Drawing.Size(205, 20);
+            this.tambun_textBox.TabIndex = 16;
             // 
             // label11
             // 
@@ -204,12 +199,12 @@
             this.label11.TabIndex = 23;
             this.label11.Text = "PostNumber";
             // 
-            // textBox11
+            // postnum_textBox
             // 
-            this.textBox11.Location = new System.Drawing.Point(427, 324);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(311, 20);
-            this.textBox11.TabIndex = 22;
+            this.postnum_textBox.Location = new System.Drawing.Point(427, 324);
+            this.postnum_textBox.Name = "postnum_textBox";
+            this.postnum_textBox.Size = new System.Drawing.Size(311, 20);
+            this.postnum_textBox.TabIndex = 22;
             // 
             // label12
             // 
@@ -220,12 +215,12 @@
             this.label12.TabIndex = 21;
             this.label12.Text = "Country";
             // 
-            // textBox12
+            // country_textBox
             // 
-            this.textBox12.Location = new System.Drawing.Point(81, 324);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(311, 20);
-            this.textBox12.TabIndex = 20;
+            this.country_textBox.Location = new System.Drawing.Point(81, 324);
+            this.country_textBox.Name = "country_textBox";
+            this.country_textBox.Size = new System.Drawing.Size(311, 20);
+            this.country_textBox.TabIndex = 20;
             // 
             // dateTimePicker1
             // 
@@ -233,6 +228,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(311, 20);
             this.dateTimePicker1.TabIndex = 24;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label1
             // 
@@ -243,12 +239,12 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Amphoe";
             // 
-            // textBox5
+            // amphoe_textBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(306, 270);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(211, 20);
-            this.textBox5.TabIndex = 25;
+            this.amphoe_textBox.Location = new System.Drawing.Point(306, 270);
+            this.amphoe_textBox.Name = "amphoe_textBox";
+            this.amphoe_textBox.Size = new System.Drawing.Size(211, 20);
+            this.amphoe_textBox.TabIndex = 25;
             // 
             // label9
             // 
@@ -259,64 +255,95 @@
             this.label9.TabIndex = 28;
             this.label9.Text = "City";
             // 
-            // textBox9
+            // city_textBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(536, 270);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(202, 20);
-            this.textBox9.TabIndex = 27;
+            this.city_textBox.Location = new System.Drawing.Point(536, 270);
+            this.city_textBox.Name = "city_textBox";
+            this.city_textBox.Size = new System.Drawing.Size(202, 20);
+            this.city_textBox.TabIndex = 27;
             // 
-            // button1
+            // submit_button
             // 
-            this.button1.Location = new System.Drawing.Point(216, 373);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(176, 55);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.submit_button.Location = new System.Drawing.Point(216, 373);
+            this.submit_button.Name = "submit_button";
+            this.submit_button.Size = new System.Drawing.Size(176, 55);
+            this.submit_button.TabIndex = 29;
+            this.submit_button.Text = "Submit";
+            this.submit_button.UseVisualStyleBackColor = true;
+            this.submit_button.Click += new System.EventHandler(this.submit_button_Click);
             // 
-            // button2
+            // cancel_button
             // 
-            this.button2.Location = new System.Drawing.Point(427, 373);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 55);
-            this.button2.TabIndex = 30;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.cancel_button.Location = new System.Drawing.Point(427, 373);
+            this.cancel_button.Name = "cancel_button";
+            this.cancel_button.Size = new System.Drawing.Size(176, 55);
+            this.cancel_button.TabIndex = 30;
+            this.cancel_button.Text = "Cancel";
+            this.cancel_button.UseVisualStyleBackColor = true;
+            this.cancel_button.Click += new System.EventHandler(this.cancel_button_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(81, 215);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(311, 21);
+            this.comboBox1.TabIndex = 31;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // brithdate_label
+            // 
+            this.brithdate_label.AutoSize = true;
+            this.brithdate_label.Location = new System.Drawing.Point(478, 140);
+            this.brithdate_label.Name = "brithdate_label";
+            this.brithdate_label.Size = new System.Drawing.Size(10, 13);
+            this.brithdate_label.TabIndex = 32;
+            this.brithdate_label.Text = ":";
+            // 
+            // gen_label
+            // 
+            this.gen_label.AutoSize = true;
+            this.gen_label.Location = new System.Drawing.Point(127, 190);
+            this.gen_label.Name = "gen_label";
+            this.gen_label.Size = new System.Drawing.Size(10, 13);
+            this.gen_label.TabIndex = 33;
+            this.gen_label.Text = ":";
             // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.gen_label);
+            this.Controls.Add(this.brithdate_label);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cancel_button);
+            this.Controls.Add(this.submit_button);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.city_textBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.amphoe_textBox);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.postnum_textBox);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox12);
+            this.Controls.Add(this.country_textBox);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.tambun_textBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.numaddress_textBox);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.username_textBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.tel_textBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.email_textBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.lastname_textBox);
             this.Controls.Add(this.firstname_lb);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.firstname_textBox);
             this.Name = "AddUser";
             this.Text = "AddUser";
             this.Load += new System.EventHandler(this.AddUser_Load);
@@ -327,33 +354,35 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox firstname_textBox;
         private System.Windows.Forms.Label firstname_lb;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox lastname_textBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tel_textBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox email_textBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox username_textBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox numaddress_textBox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox tambun_textBox;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox postnum_textBox;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox country_textBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox amphoe_textBox;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox city_textBox;
+        private System.Windows.Forms.Button submit_button;
+        private System.Windows.Forms.Button cancel_button;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label brithdate_label;
+        private System.Windows.Forms.Label gen_label;
     }
 }

@@ -27,5 +27,13 @@ namespace TesWin1
             Order orders = new Order();
             order_dataGridView.DataSource = orders.getOrder();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int proid = int.Parse(del_proid_textBox.Text.ToString());
+
+            Order order = new Order(proid);
+            int res = order.delOrder();
+        }
     }
 }
