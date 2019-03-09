@@ -15,6 +15,7 @@ namespace TesWin1
         private int qty = 0;
         private int price = 0;
         private int total = 0;
+        private int promo_id = 0;
         public AddOrder()
         {
             InitializeComponent();
@@ -73,6 +74,13 @@ namespace TesWin1
             price = Convert.ToInt32(dt.Rows[0]["ProductPrice"]);
             
         }
+        void selectPromotion()
+        {
+            Promotion promo = new Promotion(int.Parse(promo_comboBox.SelectedValue.ToString()));
+            DataTable dt = promo.selectPromotion();
+
+
+        }
         void sumTotal()
         {
             total = price * qty;
@@ -121,7 +129,10 @@ namespace TesWin1
 
         private void promo_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(promo_id != 0)
+            {
 
+            }
         }
     }
 }

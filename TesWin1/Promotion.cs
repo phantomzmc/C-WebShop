@@ -21,6 +21,10 @@ namespace TesWin1
         {
 
         }
+        public Promotion (int promoid)
+        {
+            PromotionID = promoid;
+        }
 
         public DataTable getPromotion()
         {
@@ -39,8 +43,10 @@ namespace TesWin1
         {
             SqlCommand sql_com = new SqlCommand("uspSelectPromotion", con);
             adapter.SelectCommand = sql_com;
+            adapter.SelectCommand.Parameters.AddWithValue("@PromotionID", PromotionID);
 
             con.Open();
+            adapter.SelectCommand.ExecuteNonQuery();
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             con.Close();
