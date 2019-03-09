@@ -82,11 +82,12 @@ namespace TesWin1
         public int delOrder()
         {
             SqlCommand sql_com = new SqlCommand("uspDelOrder", con);
-            adapter.InsertCommand = sql_com;
-            adapter.InsertCommand.Parameters.AddWithValue("@OrderID", OrderID);
+            sql_com.CommandType = CommandType.StoredProcedure;
+            adapter.DeleteCommand = sql_com;
+            adapter.DeleteCommand.Parameters.AddWithValue("@OrderID", OrderID);
 
             con.Open();
-            int res = adapter.InsertCommand.ExecuteNonQuery();
+            int res = adapter.DeleteCommand.ExecuteNonQuery();
             con.Close();
 
             return res;
