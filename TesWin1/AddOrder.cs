@@ -30,10 +30,12 @@ namespace TesWin1
                         new { Text = "5", Value = "5" }
         };
         //model
-        User user = new User();
+        InterfaceUser user = new UserList.User();
         Product product = new Product();
         Promotion promo = new Promotion();
-        
+
+        InterfaceProduct iproduct = new Product();
+
 
         private void AddOrder_Load(object sender, EventArgs e)
         {
@@ -63,14 +65,14 @@ namespace TesWin1
         }
         void getProduct()
         {
-            product_comboBox.DataSource = product.getProduct();
+            product_comboBox.DataSource = iproduct.getProduct();
             product_comboBox.DisplayMember = "ProductName";
             product_comboBox.ValueMember = "ProductID";
         }
         void changedProduct()
         {
             Product product = new Product(int.Parse(product_comboBox.SelectedValue.ToString()));
-            DataTable dt = product.selectProduct();
+            DataTable dt = iproduct.selectProduct();
             price_label2.Text = Convert.ToString(dt.Rows[0]["ProductPrice"]);
 
             price = Convert.ToInt32(dt.Rows[0]["ProductPrice"]);

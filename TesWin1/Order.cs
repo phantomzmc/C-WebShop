@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 namespace TesWin1
 {
     
-    class Order
+    public class Order : InterfaceOrder
     {
         SqlConnection con = new SqlConnection(Properties.Resources.ConnectionString);
         SqlDataAdapter adapter = new SqlDataAdapter();
@@ -44,10 +44,8 @@ namespace TesWin1
             OrderTime = ordertime;
         }
 
-        
-        public DataTable getOrder()
+        DataTable InterfaceOrder.getOrder()
         {
-
             con.Open();
             SqlCommand sql_com = new SqlCommand("uspGetOrder", con);
 
@@ -61,7 +59,7 @@ namespace TesWin1
             return (dt);
         }
 
-        public int addOrder()
+        int InterfaceOrder.addOrder()
         {
             SqlCommand sql_com = new SqlCommand("uspAddOrder", con);
             adapter.InsertCommand = sql_com;
@@ -79,7 +77,7 @@ namespace TesWin1
             return res;
         }
 
-        public int delOrder()
+        int InterfaceOrder.delOrder()
         {
             SqlCommand sql_com = new SqlCommand("uspDelOrder", con);
             sql_com.CommandType = CommandType.StoredProcedure;
@@ -91,10 +89,12 @@ namespace TesWin1
             con.Close();
 
             return res;
-        
         }
 
-        
+        int InterfaceOrder.editOrder()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     

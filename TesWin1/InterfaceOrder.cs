@@ -7,11 +7,11 @@ using System.Data;
 
 namespace TesWin1
 {
-    interface InterfaceProduct
+    interface InterfaceOrder
     {
-        DataTable selectProduct();
-        DataTable getProduct();
-        int addProduct();
-        DataTable getType();
+        DataTable getOrder();
+        int addOrder();
+        int delOrder();
+        int editOrder();
     }
 }

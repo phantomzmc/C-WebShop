@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace TesWin1
 {
-    public partial class Form1 : Form, InterfaceProduct
+    public partial class Form1 : Form
     {
         public Form1()
         {
@@ -31,6 +31,7 @@ namespace TesWin1
         #region Model
         //Model
         Product product = new Product();
+        InterfaceProduct iproduct = new Product();
         #endregion
 
         private void Form1_Load(object sender, EventArgs e)
@@ -40,7 +41,7 @@ namespace TesWin1
         }
         void getType()
         {
-            typeproduct_comboBox.DataSource = product.getTypeProduct();
+            typeproduct_comboBox.DataSource = iproduct.getType();
             typeproduct_comboBox.DisplayMember = "TypeName";
             typeproduct_comboBox.ValueMember = "TypeID";
         }
@@ -53,7 +54,7 @@ namespace TesWin1
             int type_pro = int.Parse(typeproduct_comboBox.SelectedValue.ToString());
 
             Product product = new Product(name, price, detail, type_pro);
-            int res = product.addProduct();
+            int res = iproduct.addProduct();
         }
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -98,34 +99,7 @@ namespace TesWin1
         }
         #endregion
 
-        void InterfaceProduct.getProduct()
-        {
-            throw new NotImplementedException();
-        }
 
-        void InterfaceProduct.addProduct()
-        {
-            try
-            {
-                addProduct();
-            }
-            catch
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        void InterfaceProduct.getType()
-        {
-            try
-            {
-                getType();
-            }
-            catch
-            {
-                throw new NotImplementedException();
-            }
-        }
 
         private void typeproduct_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace TesWin1
 {
-    class Product
+    public class Product : InterfaceProduct
     {
         SqlConnection con = new SqlConnection(Properties.Resources.ConnectionString);
         SqlDataAdapter adapter = new SqlDataAdapter();
@@ -37,50 +37,9 @@ namespace TesWin1
         {
             ProductID = productid;
         }
-        public DataTable getProduct()
-        {
 
-            adapter.SelectCommand = new SqlCommand("uspGetProduct", con);
-            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-            DataTable dt = new DataTable();
-            con.Open();
-            adapter.Fill(dt);
-            con.Close();
-
-            return (dt);
-        }
-        public DataTable getTypeProduct()
-        {
-            adapter.SelectCommand = new SqlCommand("uspGetTypeProduct", con);
-            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-
-            DataTable dr = new DataTable();
-            con.Open();
-            adapter.Fill(dr);
-            Debug.Write(dr);
-            con.Close();
-
-            return (dr);
-        }
-
-        public DataTable selectProduct()
-        {
-            adapter.SelectCommand = new SqlCommand("uspSelectProduct", con);
-            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-            adapter.SelectCommand.Parameters.AddWithValue("@ProductID", ProductID);
-
-            con.Open();
-            adapter.SelectCommand.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            con.Close();
-
-            return (dt);
-            
-        }
-
-        public int addProduct()
+        int InterfaceProduct.addProduct()
         {
             adapter.InsertCommand = new SqlCommand("uspAddProduct", con);
             adapter.InsertCommand.CommandType = CommandType.StoredProcedure;
@@ -95,6 +54,48 @@ namespace TesWin1
             con.Close();
 
             return res;
+        }
+
+        DataTable InterfaceProduct.selectProduct()
+        {
+            adapter.SelectCommand = new SqlCommand("uspSelectProduct", con);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            adapter.SelectCommand.Parameters.AddWithValue("@ProductID", ProductID);
+
+            con.Open();
+            adapter.SelectCommand.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            con.Close();
+
+            return (dt);
+        }
+
+        DataTable InterfaceProduct.getProduct()
+        {
+            adapter.SelectCommand = new SqlCommand("uspGetProduct", con);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            DataTable dt = new DataTable();
+            con.Open();
+            adapter.Fill(dt);
+            con.Close();
+
+            return (dt);
+        }
+
+        DataTable InterfaceProduct.getType()
+        {
+            adapter.SelectCommand = new SqlCommand("uspGetTypeProduct", con);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            DataTable dr = new DataTable();
+            con.Open();
+            adapter.Fill(dr);
+            Debug.Write(dr);
+            con.Close();
+
+            return (dr);
         }
     }
 }

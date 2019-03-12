@@ -28,7 +28,7 @@ namespace TesWin1
                         new { Text = "Women", Value = "W" }
         };
         //model
-        User users = new User();
+        UserList.User users = new UserList.User();
 
         private void AddUser_Load(object sender, EventArgs e)
         {
@@ -50,9 +50,9 @@ namespace TesWin1
             string city = city_textBox.Text.ToString();
             string country = country_textBox.Text.ToString();
             string postnum = postnum_textBox.Text.ToString();
-            
 
-            User users = new User(firstname,lastname,email,tel,username,gender,birthday,numaddress,tambon,amphoe,city,country,postnum);
+
+            InterfaceUser users = new UserList.User(firstname,lastname,email,tel,username,gender,birthday,numaddress,tambon,amphoe,city,country,postnum);
             int res = users.addUser();
         }
         void getGen()

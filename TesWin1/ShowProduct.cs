@@ -12,6 +12,8 @@ namespace TesWin1
 {
     public partial class ShowProduct : Form
     {
+        InterfaceProduct iproduct = new Product();
+
         public ShowProduct()
         {
             InitializeComponent();
@@ -20,7 +22,7 @@ namespace TesWin1
         private void ShowProduct_Load(object sender, EventArgs e)
         {
             Product product = new Product();
-            dataGridView1.DataSource = product.getProduct();
+            dataGridView1.DataSource = iproduct.getProduct();
 
         }
     }

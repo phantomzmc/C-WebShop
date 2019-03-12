@@ -12,7 +12,7 @@ namespace TesWin1
 {
     public partial class ShowUser : Form
     {
-        User users = new User();
+        InterfaceUser users = new UserList.User();
         public ShowUser()
         {
             InitializeComponent();
