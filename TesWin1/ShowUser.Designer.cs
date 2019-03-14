@@ -35,9 +35,9 @@
             // user_dataGridView
             // 
             this.user_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.user_dataGridView.Location = new System.Drawing.Point(12, 25);
+            this.user_dataGridView.Location = new System.Drawing.Point(12, 12);
             this.user_dataGridView.Name = "user_dataGridView";
-            this.user_dataGridView.Size = new System.Drawing.Size(776, 338);
+            this.user_dataGridView.Size = new System.Drawing.Size(776, 385);
             this.user_dataGridView.TabIndex = 0;
             // 
             // ShowUser

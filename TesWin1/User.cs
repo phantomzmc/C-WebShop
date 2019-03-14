@@ -12,6 +12,9 @@ namespace TesWin1
     public class UserList : IDictionary<int,UserList.User>
     {
         public Dictionary<int, UserList.User> userlist = new Dictionary<int, UserList.User>();
+
+        #region Implement
+
         public User this[int key] {
             get
             {
@@ -86,7 +89,46 @@ namespace TesWin1
             return userlist.GetEnumerator();
         }
 
-        public class User : InterfaceUser
+        #endregion
+
+        public void Select()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection(Properties.Resources.ConnectionString);
+
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = new SqlCommand("uspGetUser", con);
+                adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                adapter.Fill(dt);
+
+                foreach (DataRow item in dt.Rows)
+                {
+                    User u = new User() {
+                        Firstname = item["FirstName"].ToString(),
+                        Lastname = item["Lastname"].ToString(),
+                        UserID = int.Parse(item["UserID"].ToString()),
+                        Email = item["Email"].ToString()
+
+                    };
+                    this.userlist.Add(u.UserID, u);
+                }
+                
+            }
+            catch (SqlException ex)
+            {
+                string error = ex.Message;
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public class User
         {
             SqlConnection con = new SqlConnection(Properties.Resources.ConnectionString);
             SqlDataAdapter adapter = new SqlDataAdapter();
@@ -109,6 +151,8 @@ namespace TesWin1
             {
 
             }
+
+
             public User(
                 string firstname,
                 string lastname,
@@ -139,20 +183,20 @@ namespace TesWin1
                 Postnumber = postnum;
             }
 
-            DataTable InterfaceUser.getUser()
-            {
-                adapter.SelectCommand = new SqlCommand("uspGetUser", con);
-                adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            //public DataTable getUser()
+            //{
+            //    adapter.SelectCommand = new SqlCommand("uspGetUser", con);
+            //    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-                DataTable dt = new DataTable();
-                con.Open();
-                adapter.Fill(dt);
-                con.Close();
+            //    DataTable dt = new DataTable();
+            //    con.Open();
+            //    adapter.Fill(dt);
+            //    con.Close();
 
-                return (dt);
-            }
+            //    return dt;
+            //}
 
-            int InterfaceUser.addUser()
+            public int addUser()
             {
                 adapter.InsertCommand = new SqlCommand("uspAddUser", con);
                 adapter.InsertCommand.CommandType = CommandType.StoredProcedure;
@@ -177,7 +221,7 @@ namespace TesWin1
                 return res;
             }
 
-            int InterfaceUser.editUser()
+            public int editUser()
             {
                 throw new NotImplementedException();
             }

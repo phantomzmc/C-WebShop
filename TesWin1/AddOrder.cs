@@ -30,11 +30,11 @@ namespace TesWin1
                         new { Text = "5", Value = "5" }
         };
         //model
-        InterfaceUser user = new UserList.User();
+        UserList.User user = new UserList.User();
         Product product = new Product();
-        Promotion promo = new Promotion();
+        PromotionList.Promotion promo = new PromotionList.Promotion();
 
-        InterfaceProduct iproduct = new Product();
+
 
 
         private void AddOrder_Load(object sender, EventArgs e)
@@ -59,34 +59,34 @@ namespace TesWin1
         }
         void getUser()
         {
-            user_comboBox.DataSource = user.getUser();
-            user_comboBox.DisplayMember = "FirstName";
-            user_comboBox.ValueMember = "UserID";
+            //user_comboBox.DataSource = user.();
+            //user_comboBox.DisplayMember = "FirstName";
+            //user_comboBox.ValueMember = "UserID";
         }
         void getProduct()
         {
-            product_comboBox.DataSource = iproduct.getProduct();
+            product_comboBox.DataSource = product.getProduct();
             product_comboBox.DisplayMember = "ProductName";
             product_comboBox.ValueMember = "ProductID";
         }
         void changedProduct()
         {
             Product product = new Product(int.Parse(product_comboBox.SelectedValue.ToString()));
-            DataTable dt = iproduct.selectProduct();
+            DataTable dt = product.selectProduct();
             price_label2.Text = Convert.ToString(dt.Rows[0]["ProductPrice"]);
 
             price = Convert.ToInt32(dt.Rows[0]["ProductPrice"]);
-            
+
         }
         void selectPromotion()
         {
-            Promotion promo = new Promotion(int.Parse(promo_comboBox.SelectedValue.ToString()));
+            PromotionList.Promotion promo = new PromotionList.Promotion(int.Parse(promo_comboBox.SelectedValue.ToString()));
             DataTable dt = promo.selectPromotion();
 
-            //promo_comboBox.Text = Convert.ToString(dt.Rows[0]["PromotionDiscount"]);
-
-            //promo_type = Convert.ToInt32(dt.Rows[0]["PromotionType"]);
-            //discount = Convert.ToInt32(dt.Rows[0]["PromotionDiscount"]);
+            promo_comboBox.Text = Convert.ToString(dt.Rows[0]["PromotionDiscount"]);
+            
+            int promo_type = Convert.ToInt32(dt.Rows[0]["PromotionType"]);
+            int discount = Convert.ToInt32(dt.Rows[0]["PromotionDiscount"]);
 
         }
         void sumTotal()
@@ -136,7 +136,7 @@ namespace TesWin1
             int userid = int.Parse(user_comboBox.SelectedValue.ToString());
             DateTime ordertime = DateTime.Now;
 
-            Order orders = new Order(productid, orderqty, orderprice,userid,ordertime);
+            OrderDic.Order orders = new OrderDic.Order(productid, orderqty, orderprice,userid,ordertime);
             int res = orders.addOrder();
 
             MessageBox.Show("Add Order OK!!");

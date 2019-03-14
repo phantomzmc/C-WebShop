@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace TesWin1
 {
-    public class Product : InterfaceProduct
+    public class Product
     {
         SqlConnection con = new SqlConnection(Properties.Resources.ConnectionString);
         SqlDataAdapter adapter = new SqlDataAdapter();
@@ -23,9 +23,16 @@ namespace TesWin1
 
         public Product()
         {
-
         }
 
+        public Product(int productid,string productname, int productprice, string productdetail, int typeproduct)
+        {
+            ProductID = productid;
+            ProductName = productname;
+            ProductPrice = productprice;
+            ProductDetail = productdetail;
+            TypeProduct = typeproduct;
+        }
         public Product(string productname, int productprice, string productdetail, int typeproduct)
         {
             ProductName = productname;
@@ -39,7 +46,7 @@ namespace TesWin1
         }
 
 
-        int InterfaceProduct.addProduct()
+        public int addProduct()
         {
             adapter.InsertCommand = new SqlCommand("uspAddProduct", con);
             adapter.InsertCommand.CommandType = CommandType.StoredProcedure;
@@ -56,7 +63,7 @@ namespace TesWin1
             return res;
         }
 
-        DataTable InterfaceProduct.selectProduct()
+        public DataTable selectProduct()
         {
             adapter.SelectCommand = new SqlCommand("uspSelectProduct", con);
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -71,7 +78,7 @@ namespace TesWin1
             return (dt);
         }
 
-        DataTable InterfaceProduct.getProduct()
+        public DataTable getProduct()
         {
             adapter.SelectCommand = new SqlCommand("uspGetProduct", con);
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -84,7 +91,7 @@ namespace TesWin1
             return (dt);
         }
 
-        DataTable InterfaceProduct.getType()
+        public DataTable getType()
         {
             adapter.SelectCommand = new SqlCommand("uspGetTypeProduct", con);
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -96,6 +103,41 @@ namespace TesWin1
             con.Close();
 
             return (dr);
+        }
+
+        public int delProduct()
+        {
+            adapter.DeleteCommand = new SqlCommand("uspDelProduct", con);
+            adapter.DeleteCommand.CommandType = CommandType.StoredProcedure;
+
+            adapter.DeleteCommand.Parameters.AddWithValue("@ProductID", ProductID);
+
+            con.Open();
+            int res = adapter.DeleteCommand.ExecuteNonQuery();
+            con.Close();
+
+            return res;
+        }
+
+        public int editProduct()
+        {
+            adapter.UpdateCommand = new SqlCommand("uspUpdateProduct", con);
+            adapter.UpdateCommand.CommandType = CommandType.StoredProcedure;
+            adapter.UpdateCommand.Parameters.AddWithValue("@ProductID", ProductID);
+            adapter.UpdateCommand.Parameters.AddWithValue("@ProductName", ProductName);
+            adapter.UpdateCommand.Parameters.AddWithValue("@ProductPrice", ProductPrice);
+            adapter.UpdateCommand.Parameters.AddWithValue("@ProductDetail", ProductDetail);
+            adapter.UpdateCommand.Parameters.AddWithValue("@TypeProduct", TypeProduct);
+
+            con.Open();
+            int res = adapter.UpdateCommand.ExecuteNonQuery();
+            con.Close();
+            return res;
+        }
+        public int setProID(int proid)
+        {
+            ProductID = proid;
+            return proid;
         }
     }
 }

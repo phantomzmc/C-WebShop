@@ -31,7 +31,6 @@ namespace TesWin1
         #region Model
         //Model
         Product product = new Product();
-        InterfaceProduct iproduct = new Product();
         #endregion
 
         private void Form1_Load(object sender, EventArgs e)
@@ -41,7 +40,7 @@ namespace TesWin1
         }
         void getType()
         {
-            typeproduct_comboBox.DataSource = iproduct.getType();
+            typeproduct_comboBox.DataSource = product.getType();
             typeproduct_comboBox.DisplayMember = "TypeName";
             typeproduct_comboBox.ValueMember = "TypeID";
         }
@@ -54,7 +53,7 @@ namespace TesWin1
             int type_pro = int.Parse(typeproduct_comboBox.SelectedValue.ToString());
 
             Product product = new Product(name, price, detail, type_pro);
-            int res = iproduct.addProduct();
+            int res = product.addProduct();
         }
         private void Button1_Click(object sender, EventArgs e)
         {

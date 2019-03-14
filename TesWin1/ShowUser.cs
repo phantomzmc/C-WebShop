@@ -12,7 +12,7 @@ namespace TesWin1
 {
     public partial class ShowUser : Form
     {
-        InterfaceUser users = new UserList.User();
+        
         public ShowUser()
         {
             InitializeComponent();
@@ -20,11 +20,15 @@ namespace TesWin1
 
         private void ShowUser_Load(object sender, EventArgs e)
         {
-            getUser();
+            UserList u = new UserList();
+            u.Select();
+
+            this.user_dataGridView.DataSource = u.Values;
+            //getUser();
         }
         void getUser()
         {
-            user_dataGridView.DataSource = users.getUser();
+            //user_dataGridView.DataSource = users.getUser();
         }
     }
 }

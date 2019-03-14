@@ -19,12 +19,16 @@ namespace TesWin1
 
         private void ShowOrder_Load(object sender, EventArgs e)
         {
-            getOrder();
+            //getOrder();
+            OrderDic orders = new OrderDic();
+            orders.getOrder();
+            order_dataGridView.DataSource = orders.Values;
+
         }
 
         void getOrder()
         {
-            Order orders = new Order();
+            OrderDic.Order orders = new OrderDic.Order();
             order_dataGridView.DataSource = orders.getOrder();
         }
 
@@ -32,8 +36,19 @@ namespace TesWin1
         {
             int proid = int.Parse(del_proid_textBox.Text.ToString());
 
-            Order order = new Order(proid);
-            int res = order.delOrder();
+            OrderDic.Order orders = new OrderDic.Order(int.Parse(del_proid_textBox.Text.ToString()));
+            int res = orders.delOrder();
+        }
+
+        private void edit_button_Click(object sender, EventArgs e)
+        {
+            //ordersid = int.Parse(edit_order_textBox.Text.ToString());
+
+            OrderDic.Order orders = new OrderDic.Order(int.Parse(edit_order_textBox.Text.ToString()));
+            EditOrder edit_order = new EditOrder();
+            edit_order.Show();
+            //InterfaceOrder orders = new Order(proid);
+            //int res = orders.editOrder();
         }
     }
 }

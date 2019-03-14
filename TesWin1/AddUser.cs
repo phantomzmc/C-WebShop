@@ -10,13 +10,8 @@ using System.Windows.Forms;
 
 namespace TesWin1
 {
-    public interface ControlUser
-    {
-        void addUser();
-        void getUser();
-    }
-    
-    public partial class AddUser : Form,ControlUser
+
+    public partial class AddUser : Form
     {
         private DateTime brithdate;
         public AddUser()
@@ -52,7 +47,7 @@ namespace TesWin1
             string postnum = postnum_textBox.Text.ToString();
 
 
-            InterfaceUser users = new UserList.User(firstname,lastname,email,tel,username,gender,birthday,numaddress,tambon,amphoe,city,country,postnum);
+            UserList.User users = new UserList.User(firstname, lastname, email, tel, username, gender, birthday, numaddress, tambon, amphoe, city, country, postnum);
             int res = users.addUser();
         }
         void getGen()
@@ -85,14 +80,5 @@ namespace TesWin1
             brithdate_label.Text = birthdates.ToString("dd/MMM/yyyy");
         }
 
-        void ControlUser.addUser()
-        {
-            throw new NotImplementedException();
-        }
-
-        void ControlUser.getUser()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
