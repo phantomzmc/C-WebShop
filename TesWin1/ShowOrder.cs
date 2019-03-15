@@ -21,22 +21,24 @@ namespace TesWin1
         {
             //getOrder();
             OrderDic orders = new OrderDic();
-            orders.getOrder();
+            orders.getOrders();
             order_dataGridView.DataSource = orders.Values;
 
         }
 
         void getOrder()
         {
-            OrderDic.Order orders = new OrderDic.Order();
-            order_dataGridView.DataSource = orders.getOrder();
+            //OrderDic orders = new OrderDic();
+            //order_dataGridView.DataSource = orders.getOrder();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int proid = int.Parse(del_proid_textBox.Text.ToString());
-
-            OrderDic.Order orders = new OrderDic.Order(int.Parse(del_proid_textBox.Text.ToString()));
+            
+            OrderDic.Order orders = new OrderDic.Order(int.Parse(del_proid_textBox.Text.ToString()))
+            {
+                OrderID = int.Parse(del_proid_textBox.Text.ToString())
+            };
             int res = orders.delOrder();
         }
 

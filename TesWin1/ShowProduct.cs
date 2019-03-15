@@ -41,7 +41,10 @@ namespace TesWin1
             EditProduct edit_view = new EditProduct();
             
             string proid = edit_proid_textBox.Text.ToString();
-            var product = new Product(int.Parse(proid));
+            var product = new Product(int.Parse(proid))
+            {
+                ProductID = int.Parse(proid)
+            };
             product.setProID(int.Parse(proid));
             edit_view.Show();
         }

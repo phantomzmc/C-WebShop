@@ -26,6 +26,7 @@ namespace TesWin1
 
         AddOrder add_order = new AddOrder();
         AddUser add_user = new AddUser();
+        AddTypeProduct add_typeproduct = new AddTypeProduct();
         #endregion
 
         #region Model
@@ -40,7 +41,8 @@ namespace TesWin1
         }
         void getType()
         {
-            typeproduct_comboBox.DataSource = product.getType();
+            ProductType product_type = new ProductType();
+            typeproduct_comboBox.DataSource = product_type.getType();
             typeproduct_comboBox.DisplayMember = "TypeName";
             typeproduct_comboBox.ValueMember = "TypeID";
         }
@@ -52,13 +54,45 @@ namespace TesWin1
             int price = int.Parse(productprice_textBox.Text);
             int type_pro = int.Parse(typeproduct_comboBox.SelectedValue.ToString());
 
-            Product product = new Product(name, price, detail, type_pro);
-            int res = product.addProduct();
+            if((productprice_textBox.Text == "" || productdetail_textBox.Text == "") || (productprice_textBox.Text == null || typeproduct_comboBox.SelectedValue.ToString() == null))
+            {
+                MessageBox.Show("กรอกข้อมูลให้ครบถ้วน", "ผิดพลาด");
+
+            }
+            else
+            {
+                Product product = new Product(name, price, detail, type_pro)
+                {
+                    ProductName = name,
+                    ProductPrice = price,
+                    ProductDetail = detail,
+                    TypeProduct = type_pro
+                };
+                int res = product.addProduct();
+            }
+            
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-            addProduct();
-           
+            DialogResult result = MessageBox.Show("เพิ่มรายการสินค้านี้ ใช่หรือไม่ ??", "เพิ่มรายการ", MessageBoxButtons.YesNo);
+            switch (result)
+            {
+
+                case DialogResult.Yes:
+                    {
+                        addProduct();
+                        MessageBox.Show("เพิ่มข้อมูลเรียบร้อย", "เรียบร้อย");
+                        break;
+                    }
+                case DialogResult.No:
+                    {
+                        productname_textBox.Text = "" ;
+                        productdetail_textBox.Text = "";
+                        productprice_textBox.Text= "";
+                        typeproduct_comboBox.Text= "";
+                        break;
+                    }
+            }  
         }
         private void addOrderToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -103,6 +137,11 @@ namespace TesWin1
         private void typeproduct_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            add_typeproduct.Show();
         }
     }
 }

@@ -10,28 +10,44 @@ using System.Windows.Forms;
 
 namespace TesWin1
 {
-
-    public partial class AddUser : Form
+    public partial class EditUser : Form
     {
-        private DateTime brithdate;
-        public AddUser()
-        {
-            InitializeComponent();
-        }
+        UserList.User user = new UserList.User();
+
         Array gender = new[] {
                         new { Text = "Men", Value = "M" },
                         new { Text = "Women", Value = "W" }
         };
-        //model
-        UserList.User users = new UserList.User();
-
-        private void AddUser_Load(object sender, EventArgs e)
+        public EditUser()
         {
+            InitializeComponent();
+        }
+
+        private void EditUser_Load(object sender, EventArgs e)
+        {
+            getUser();
             getGen();
         }
 
-        void addUser()
+        private void submit_button_Click(object sender, EventArgs e)
         {
+            editUser();
+        }
+        void getUser()
+        {
+            user_comboBox.DataSource = user.getUser();
+            user_comboBox.DisplayMember = "FirstName";
+            user_comboBox.ValueMember = "UserID";
+        }
+        void getGen()
+        {
+            comboBox1.DataSource = gender;
+            comboBox1.DisplayMember = "Text";
+            comboBox1.ValueMember = "Value";
+        }
+        void editUser()
+        {
+            int userid = int.Parse(user_comboBox.SelectedValue.ToString());
             string firstname = firstname_textBox.Text.ToString();
             string lastname = lastname_textBox.Text.ToString();
             string email = email_textBox.Text.ToString();
@@ -47,8 +63,9 @@ namespace TesWin1
             string postnum = postnum_textBox.Text.ToString();
 
 
-            UserList.User users = new UserList.User(firstname, lastname, email, tel, username, gender, birthday, numaddress, tambon, amphoe, city, country, postnum)
+            UserList.User users = new UserList.User(userid, firstname, lastname, email, tel, username, gender, birthday, numaddress, tambon, amphoe, city, country, postnum)
             {
+                UserID = userid,
                 Firstname = firstname,
                 Lastname = lastname,
                 Email = email,
@@ -63,37 +80,7 @@ namespace TesWin1
                 Country = country,
                 Postnumber = postnum
             };
-            int res = users.addUser();
+            int res = users.editUser();
         }
-        
-        void getGen()
-        {
-            comboBox1.DataSource = gender;
-            comboBox1.DisplayMember = "Text";
-            comboBox1.ValueMember = "Value";
-        }
-
-        private void cancel_button_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void submit_button_Click(object sender, EventArgs e)
-        {
-            addUser();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            gen_label.Text = comboBox1.SelectedValue.ToString();
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-            DateTime birthdates = dateTimePicker1.Value;
-            brithdate = birthdates;
-            brithdate_label.Text = birthdates.ToString("dd/MMM/yyyy");
-        }
-
     }
 }

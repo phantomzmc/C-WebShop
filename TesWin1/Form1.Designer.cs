@@ -41,6 +41,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addOrderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.showOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -155,7 +156,8 @@
             // addOrderToolStripMenuItem
             // 
             this.addOrderToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addOrderToolStripMenuItem1});
+            this.addOrderToolStripMenuItem1,
+            this.toolStripMenuItem2});
             this.addOrderToolStripMenuItem.Name = "addOrderToolStripMenuItem";
             this.addOrderToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.addOrderToolStripMenuItem.Text = "Add Order";
@@ -163,9 +165,16 @@
             // addOrderToolStripMenuItem1
             // 
             this.addOrderToolStripMenuItem1.Name = "addOrderToolStripMenuItem1";
-            this.addOrderToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
+            this.addOrderToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.addOrderToolStripMenuItem1.Text = "Add Order";
             this.addOrderToolStripMenuItem1.Click += new System.EventHandler(this.addOrderToolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Text = "Add ProductType";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -285,6 +294,7 @@
         private System.Windows.Forms.ToolStripMenuItem showOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showProductToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showUserToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }
 

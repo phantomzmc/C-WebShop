@@ -59,9 +59,9 @@ namespace TesWin1
         }
         void getUser()
         {
-            //user_comboBox.DataSource = user.();
-            //user_comboBox.DisplayMember = "FirstName";
-            //user_comboBox.ValueMember = "UserID";
+            user_comboBox.DataSource = user.getUser();
+            user_comboBox.DisplayMember = "FirstName";
+            user_comboBox.ValueMember = "UserID";
         }
         void getProduct()
         {
@@ -71,7 +71,10 @@ namespace TesWin1
         }
         void changedProduct()
         {
-            Product product = new Product(int.Parse(product_comboBox.SelectedValue.ToString()));
+            Product product = new Product(int.Parse(product_comboBox.SelectedValue.ToString()))
+            {
+                ProductID = int.Parse(product_comboBox.SelectedValue.ToString())
+            };
             DataTable dt = product.selectProduct();
             price_label2.Text = Convert.ToString(dt.Rows[0]["ProductPrice"]);
 
@@ -136,7 +139,14 @@ namespace TesWin1
             int userid = int.Parse(user_comboBox.SelectedValue.ToString());
             DateTime ordertime = DateTime.Now;
 
-            OrderDic.Order orders = new OrderDic.Order(productid, orderqty, orderprice,userid,ordertime);
+            OrderDic.Order orders = new OrderDic.Order(productid, orderqty, orderprice, userid, ordertime)
+            {
+                ProductID = productid,
+                OrderQty = orderqty,
+                OrderPrice = orderprice,
+                UserID = userid,
+                OrderTime = ordertime,
+            };
             int res = orders.addOrder();
 
             MessageBox.Show("Add Order OK!!");

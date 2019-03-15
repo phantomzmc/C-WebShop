@@ -25,7 +25,8 @@ namespace TesWin1
         }
         void getTypeProduct()
         {
-            comboBox1.DataSource = product.getType();
+            ProductType product_type = new ProductType();
+            comboBox1.DataSource = product_type.getType();
             comboBox1.DisplayMember = "TypeName";
             comboBox1.ValueMember = "TypeID";
 
@@ -40,7 +41,14 @@ namespace TesWin1
             string prodetail = edit_prodetail_textBox.Text.ToString();
             int type_pro = int.Parse(comboBox1.SelectedValue.ToString());
 
-            Product product = new Product(proid,proname,proprice,prodetail,type_pro);
+            Product product = new Product(proid, proname, proprice, prodetail, type_pro)
+            {
+                ProductID = proid,
+                ProductName = proname,
+                ProductPrice = proprice,
+                ProductDetail = prodetail,
+                TypeProduct = type_pro
+            };
             int res = product.editProduct();
             MessageBox.Show(proname + proprice + prodetail,"",MessageBoxButtons.OKCancel);
             

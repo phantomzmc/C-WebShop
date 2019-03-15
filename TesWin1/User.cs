@@ -91,7 +91,7 @@ namespace TesWin1
 
         #endregion
 
-        public void Select()
+        public void SelectUser()
         {
             DataTable dt = new DataTable();
             SqlConnection con = new SqlConnection(Properties.Resources.ConnectionString);
@@ -110,7 +110,17 @@ namespace TesWin1
                         Firstname = item["FirstName"].ToString(),
                         Lastname = item["Lastname"].ToString(),
                         UserID = int.Parse(item["UserID"].ToString()),
-                        Email = item["Email"].ToString()
+                        Email = item["Email"].ToString(),
+                        Tel = item["Tel"].ToString(),
+                        //Username = item["Username"].ToString(),
+                        Gender = item["Gender"].ToString(),
+                        //BirthDay = item["BirthDay"].ToString(),
+                        NumAddress = item["NumAddress"].ToString(),
+                        Tambun = item["Tambon"].ToString(),
+                        Amphoe = item["Amphoe"].ToString(),
+                        City = item["City"].ToString(),
+                        Country = item["Country"].ToString(),
+                        Postnumber = item["Postnumber"].ToString(),
 
                     };
                     this.userlist.Add(u.UserID, u);
@@ -147,54 +157,23 @@ namespace TesWin1
             public string Country { get; set; }
             public string Postnumber { get; set; }
 
-            public User()
+            public User() { }
+            public User(string firstname, string lastname, string email, string tel, string username, string gender, DateTime birthday, string numaddress, string tambon, string amphoe, string city, string country, string postnum) { }
+            public User(int userid,string firstname, string lastname, string email, string tel, string username, string gender, DateTime birthday, string numaddress, string tambon, string amphoe, string city, string country, string postnum) { }
+
+
+            public DataTable getUser()
             {
+                adapter.SelectCommand = new SqlCommand("uspGetUser", con);
+                adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
+                DataTable dt = new DataTable();
+                con.Open();
+                adapter.Fill(dt);
+                con.Close();
+
+                return dt;
             }
-
-
-            public User(
-                string firstname,
-                string lastname,
-                string email,
-                string tel,
-                string username,
-                string gender,
-                DateTime birthday,
-                string numaddress,
-                string tambon,
-                string amphoe,
-                string city,
-                string country,
-                string postnum)
-            {
-                Firstname = firstname;
-                Lastname = lastname;
-                Email = email;
-                Tel = tel;
-                Username = username;
-                Gender = gender;
-                BirthDay = birthday;
-                NumAddress = numaddress;
-                Tambun = tambon;
-                Amphoe = amphoe;
-                City = city;
-                Country = country;
-                Postnumber = postnum;
-            }
-
-            //public DataTable getUser()
-            //{
-            //    adapter.SelectCommand = new SqlCommand("uspGetUser", con);
-            //    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-
-            //    DataTable dt = new DataTable();
-            //    con.Open();
-            //    adapter.Fill(dt);
-            //    con.Close();
-
-            //    return dt;
-            //}
 
             public int addUser()
             {
@@ -223,7 +202,28 @@ namespace TesWin1
 
             public int editUser()
             {
-                throw new NotImplementedException();
+                adapter.UpdateCommand = new SqlCommand("uspUpdateUser", con);
+                adapter.UpdateCommand.CommandType = CommandType.StoredProcedure; 
+                adapter.UpdateCommand.Parameters.AddWithValue("@UserID", UserID);
+                adapter.UpdateCommand.Parameters.AddWithValue("@FirstName", Firstname);
+                adapter.UpdateCommand.Parameters.AddWithValue("@LastName", Lastname);
+                adapter.UpdateCommand.Parameters.AddWithValue("@Email", Email);
+                adapter.UpdateCommand.Parameters.AddWithValue("@Tel", Tel);
+                adapter.UpdateCommand.Parameters.AddWithValue("@Username", Username);
+                adapter.UpdateCommand.Parameters.AddWithValue("@Gender", Gender);
+                adapter.UpdateCommand.Parameters.AddWithValue("@BrithDay", DateTime.Now);
+                adapter.UpdateCommand.Parameters.AddWithValue("@NumAddress", NumAddress);
+                adapter.UpdateCommand.Parameters.AddWithValue("@Tumbun", Tambun);
+                adapter.UpdateCommand.Parameters.AddWithValue("@Amphoe", Amphoe);
+                adapter.UpdateCommand.Parameters.AddWithValue("@City", City);
+                adapter.UpdateCommand.Parameters.AddWithValue("@Country", Country);
+                adapter.UpdateCommand.Parameters.AddWithValue("@PostNumber", Postnumber);
+
+                con.Open();
+                int res = adapter.UpdateCommand.ExecuteNonQuery();
+                con.Close();
+
+                return res;
             }
         }
     }

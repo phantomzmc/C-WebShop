@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace TesWin1
 {
@@ -20,30 +21,11 @@ namespace TesWin1
         public string ProductDetail { get; set; }
         public int TypeProduct { get; set; }
 
-
-        public Product()
-        {
-        }
-
-        public Product(int productid,string productname, int productprice, string productdetail, int typeproduct)
-        {
-            ProductID = productid;
-            ProductName = productname;
-            ProductPrice = productprice;
-            ProductDetail = productdetail;
-            TypeProduct = typeproduct;
-        }
-        public Product(string productname, int productprice, string productdetail, int typeproduct)
-        {
-            ProductName = productname;
-            ProductPrice = productprice;
-            ProductDetail = productdetail;
-            TypeProduct = typeproduct;
-        }
-        public Product(int productid)
-        {
-            ProductID = productid;
-        }
+        //construter
+        public Product() { }
+        public Product(int productid) { }
+        public Product(int productid,string productname, int productprice, string productdetail, int typeproduct) { }
+        public Product(string productname, int productprice, string productdetail, int typeproduct) { }
 
 
         public int addProduct()
@@ -89,20 +71,6 @@ namespace TesWin1
             con.Close();
 
             return (dt);
-        }
-
-        public DataTable getType()
-        {
-            adapter.SelectCommand = new SqlCommand("uspGetTypeProduct", con);
-            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-
-            DataTable dr = new DataTable();
-            con.Open();
-            adapter.Fill(dr);
-            Debug.Write(dr);
-            con.Close();
-
-            return (dr);
         }
 
         public int delProduct()

@@ -71,7 +71,13 @@ namespace TesWin1
             int orderqty = this.qty;
             DateTime ordertime = DateTime.Now;
 
-            OrderDic.Order order = new OrderDic.Order(orderid, productid, orderqty, ordertime);
+            OrderDic.Order order = new OrderDic.Order(orderid, productid, orderqty, ordertime)
+            {
+                OrderID = orderid,
+                ProductID = productid,
+                OrderQty = orderqty,
+                OrderTime = ordertime
+            };
             int res = order.editOrder();
 
 

@@ -14,7 +14,7 @@ namespace TesWin1
 
         private Dictionary<int, OrderDic.Order> orderdic= new Dictionary<int, OrderDic.Order>();
 
-        public void getOrder()
+        public void getOrders()
         {
             SqlConnection con = new SqlConnection(Properties.Resources.ConnectionString);
             DataTable dt = new DataTable();
@@ -33,6 +33,7 @@ namespace TesWin1
                 {
                     Order orders = new Order()
                     {
+                        StrDate = Convert.ToString(item["OrderTime"].ToString()),
                         OrderID = int.Parse(item["OrderID"].ToString()),
                         ProductName = item["ProductName"].ToString(),
                         ProductPrice = int.Parse(item["ProductPrice"].ToString()),
@@ -133,13 +134,15 @@ namespace TesWin1
         }
 
         #endregion
+
         public class Order
         {
+
             SqlConnection con = new SqlConnection(Properties.Resources.ConnectionString);
             SqlDataAdapter adapter = new SqlDataAdapter();
 
+            public string StrDate { get; set; }
             public int OrderID { get; set; }
-            public int ProductID { get; set; }
             public string ProductName { get; set; }
             public int ProductPrice { get; set; }
             public string FirstName { get; set; }
@@ -148,50 +151,30 @@ namespace TesWin1
             public int OrderPrice { get; set; }
             public DateTime OrderTime { get; set; }
             public int UserID { get; set; }
-
+            public int ProductID { get; set; }
             public DataTable ObjData { get; set; }
 
-            public Order()
-            {
+            //Construter
+            public Order() { }
+            public Order(int orderid){ }
+            public Order(int orderid,int productid, int orderqty, DateTime ordertime) { }
+            public Order(int productid, int orderqty, int orderprice, int userid, DateTime ordertime) { }
 
-            }
 
-            public Order(int orderid)
-            {
-                OrderID = orderid;
-            }
-            public Order(int orderid,int productid, int orderqty, DateTime ordertime)
-            {
+            //public DataTable getOrder()
+            //{
+            //    con.Open();
+            //    SqlCommand sql_com = new SqlCommand("uspGetOrder", con);
 
-                OrderID = orderid;
-                ProductID = productid;
-                OrderQty = orderqty;
-                OrderTime = ordertime;
-            }
-            public Order(int productid, int orderqty, int orderprice, int userid, DateTime ordertime)
-            {
-                ProductID = productid;
-                OrderQty = orderqty;
-                OrderPrice = orderprice;
-                UserID = userid;
-                OrderTime = ordertime;
-            }
+            //    adapter.SelectCommand = sql_com;
+            //    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-            public DataTable getOrder()
-            {
-                con.Open();
-                SqlCommand sql_com = new SqlCommand("uspGetOrder", con);
+            //    DataTable dt = new DataTable();
+            //    adapter.Fill(dt);
+            //    con.Close();
 
-                adapter.SelectCommand = sql_com;
-                adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                con.Close();
-
-                return (dt);
-            }
-
+            //    return (dt);
+            //}
             public int addOrder()
             {
                 SqlCommand sql_com = new SqlCommand("uspAddOrder", con);
@@ -232,7 +215,7 @@ namespace TesWin1
                 con.Open();
                 adapter.SelectCommand.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-                adapter.Fill(dt);
+                adapter.Fill(dt); 
 
                 ObjData = dt;
                 con.Close();
@@ -249,7 +232,7 @@ namespace TesWin1
                 sql_com.CommandType = CommandType.StoredProcedure;
                 adapter.UpdateCommand = sql_com;
                 adapter.UpdateCommand.Parameters.AddWithValue("@OrderID", OrderID);
-                adapter.UpdateCommand.Parameters.AddWithValue("@ProductID", ProductID);
+                adapter.UpdateCommand.Parameters.AddWithValue("@ProductID",ProductID);
                 adapter.UpdateCommand.Parameters.AddWithValue("@OrderQty", OrderQty);
                 adapter.UpdateCommand.Parameters.AddWithValue("@OrderTime", OrderTime);
 

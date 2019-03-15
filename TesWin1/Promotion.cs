@@ -139,14 +139,8 @@ namespace TesWin1
             public int PromotionDiscount { get; set; }
             public int PromotionType { get; set; }
 
-            public Promotion()
-            {
-
-            }
-            public Promotion(int promoid)
-            {
-                PromotionID = promoid;
-            }
+            public Promotion() { }
+            public Promotion(int promoid) { }
 
             public DataTable getPromotion()
             {
